@@ -1,0 +1,86 @@
+{
+  "name": "webview-sample",
+  "displayName": "webview-sample",
+  "description": "webview sample extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "webview-sample.editorWebview",
+        "title": "Editor Webview"
+      }
+    ],
+    "configuration": {
+      "title": "Webview Sample",
+      "properties": {
+        "webview-sample.fetchUrl": {
+          "type": "string",
+          "default": "https://ip.sxisa.com"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sidebar-webview",
+          "title": "Sidebar Webview",
+          "icon": "assets/logo.svg"
+        }
+      ],
+      "panel": [
+        {
+          "id": "panel-webview",
+          "title": "Panel Webview",
+          "icon": "assets/logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "sidebar-webview": [
+        {
+          "id": "webview-sample.sidebar",
+          "name": "Sidebar Webview",
+          "type": "webview"
+        }
+      ],
+      "panel-webview": [
+        {
+          "id": "webview-sample.panel",
+          "name": "Panel Webview",
+          "type": "webview"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^18.19.29",
+    "@types/node-fetch": "^2.6.11",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "node-fetch": "<3.0.0"
+  }
+}
