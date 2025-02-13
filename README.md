@@ -227,7 +227,7 @@ class WebviewSampleProvider implements vscode.WebviewViewProvider {
 
 这样，就可以在 WebView 的生命周期中做一些操作了。
 
-如果希望 WebView 在隐藏时不被销毁，可以在创建 WebView 时设置 `retainContextWhenHidden` 为 `true`。SideBar / Panel 中的 WebView 默认是保持上下文的，因此无需设置。
+如果希望 WebView 在隐藏时不被销毁，可以在创建 WebView 时设置 `retainContextWhenHidden` 为 `true`。Editor Webview 在 `createWebviewPanel` 时配置，而 SideBar / Panel 的 Webview 则是在 `vscode.window.registerWebviewViewProvider` 配置。
 
 ## 4. WebView 中的资源
 
